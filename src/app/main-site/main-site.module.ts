@@ -13,6 +13,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CategoryListComponent } from './category-list/category-list.component';
+import { CheckBoxComponent } from './todo-item/check-box/check-box.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CategoryListComponent } from './category-list/category-list.component';
     TodoListComponent,
     NavigationComponent,
     TodoItemComponent,
-    CategoryListComponent
+    CategoryListComponent,
+    CheckBoxComponent
   ],
   imports: [
     CommonModule,

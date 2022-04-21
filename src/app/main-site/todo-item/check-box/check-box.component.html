@@ -1,0 +1,23 @@
+<div *ngIf="isEdit; else notEdit">
+
+    <div *ngIf="isFinished; else notFinished">
+        <button mat-icon-button class="icon" disabled><mat-icon>check_box</mat-icon></button>
+    </div>
+
+    <ng-template #notFinished>
+        <button mat-icon-button class="icon" disabled><mat-icon>check_box_outline_blank</mat-icon></button>
+    </ng-template>
+
+</div>
+
+<ng-template #notEdit>
+
+    <div *ngIf="isFinished; else notFinished">
+        <button mat-icon-button class="icon"><mat-icon>check_box</mat-icon></button>
+    </div>
+
+    <ng-template #notFinished>
+        <button mat-icon-button class="icon"><mat-icon>check_box_outline_blank</mat-icon></button>
+    </ng-template>
+
+</ng-template>
