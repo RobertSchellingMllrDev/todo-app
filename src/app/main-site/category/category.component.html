@@ -1,0 +1,14 @@
+<div *ngIf="category">
+    <div *ngIf=" category.isFinished else notFinished">
+        <mat-list-item>
+            <mat-icon matListIcon>done_all</mat-icon>
+            <span matLine>{{category.name}}</span>
+        </mat-list-item>
+    </div>
+    <ng-template #notFinished>
+        <mat-list-item>
+            <mat-icon matListIcon>schedule</mat-icon>
+            <span matLine>{{category.name}}</span>
+        </mat-list-item>
+    </ng-template>
+</div>

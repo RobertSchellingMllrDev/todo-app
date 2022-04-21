@@ -1,0 +1,22 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="mat-sidenav" fixedInViewport="true">
+        <mat-toolbar color="primary" style="margin-top:30px;">CATEGORIES</mat-toolbar>
+        <app-category-list (onCategoryChange)="onCategoryChange($event)"></app-category-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <button aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            TO-DO LIST
+        </mat-toolbar>
+
+        <div>
+            <div *ngIf=" selectedCategory">
+                <app-todo-list (isCompleted)="onTodoCompleted($event)" [category]="selectedCategory"></app-todo-list>
+            </div>
+        </div>
+        
+    </mat-sidenav-content>
+</mat-sidenav-container>

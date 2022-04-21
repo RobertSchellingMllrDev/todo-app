@@ -1,0 +1,17 @@
+.sidenav-container {
+    height: 100vh;
+}
+
+.mat-sidenav {
+    width: 30vh;
+}
+
+.mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+}
+
+.mat-toolbar {
+    height: 50px;
+    font-size: 16px;
+}

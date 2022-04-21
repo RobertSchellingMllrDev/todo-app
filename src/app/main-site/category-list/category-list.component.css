@@ -1,0 +1,11 @@
+.add-button {
+    margin-left: 12px;
+}
+
+.add-input {
+    margin-left: 12px;
+}
+
+.category.selected {
+    background-color: rgb(219, 214, 214);
+}

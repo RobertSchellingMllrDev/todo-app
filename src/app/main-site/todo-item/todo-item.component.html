@@ -1,0 +1,63 @@
+<!--TODO: Create multiple components within todo-item--> 
+<div *ngIf="task">
+    <div class="item">
+        <div *ngIf="isEdit; else notEdit">
+            <div *ngIf=" task.isFinished; else notFinished">
+                <div class="item">
+                    <button mat-icon-button class="icon" disabled>
+                        <mat-icon>check_box</mat-icon>
+                    </button>
+                    <input matInput class="add-input" type="text" [value]="task.description" (mousedown)="$event.stopPropagation()" #edited>
+                    <div class="buttons">
+                        <button mat-icon-button (click)="updateItem(edited.value)">
+                            <mat-icon>check</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="enterEditMode(!isEdit)">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <ng-template #notFinished>
+                <div class="item">
+                    <button mat-icon-button class="icon" disabled>
+                        <mat-icon>check_box_outline_blank</mat-icon>
+                    </button>
+                    <input matInput class="add-input" type="text" [value]="task.description" (mousedown)="$event.stopPropagation()" #edited>
+                    <div class="buttons">
+                        <button mat-icon-button (click)="updateItem(edited.value)">
+                            <mat-icon>check</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="enterEditMode(!isEdit)">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+        <ng-template #notEdit>
+            <div *ngIf=" task.isFinished; else notFinished" class="item">
+                <button mat-icon-button class="icon" (click)="changeStatus(!task.isFinished)"><mat-icon>check_box</mat-icon></button>
+                <span>
+                    {{task.description}}
+                </span>
+            </div>
+            <ng-template #notFinished>
+                <div class="item" >
+                    <button mat-icon-button class="icon" (click)="changeStatus(!task.isFinished)"><mat-icon>check_box_outline_blank</mat-icon></button>
+                    <span>
+                        {{task.description}}
+                    </span>
+                </div>
+            </ng-template>
+            <div class="buttons">
+                <button mat-icon-button (click)="enterEditMode(!isEdit)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button (click)="deleteItem()">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+        </ng-template>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+span {
+    user-select: none;
+    cursor: default;
+}
+
+.icon {
+    padding-right: 36px;
+}
+
+.item {
+    width: 100%;
+    display: flex;
+    align-items:baseline;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    padding-left: 36px;
+}

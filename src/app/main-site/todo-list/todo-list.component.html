@@ -1,0 +1,26 @@
+<div *ngIf="category">
+    <div class="box">
+        <div *ngIf="category.name">
+            <h2>{{category.name}}</h2>
+        </div>
+        <div *ngIf="category.tasks">
+            <div cdkDropList (cdkDropListDropped)="drop($event)">
+                <mat-list role="list" class="mat-list" *ngFor="let task of category.tasks; let i = index">
+                    <mat-list-item role="listitem">
+                        <div cdkDrag>
+                            <app-todo-item [task]="task" (onListChange)="checkComplete()"
+                                (deletedItem)="deleteItem($event)"></app-todo-item>
+                        </div>
+                    </mat-list-item>
+                </mat-list>
+            </div>
+        </div>
+        <div class="add-button">
+            <button aria-label="Toggle sidenav" mat-icon-button color="primary" (click)="addTodo(newTodo.value)">
+                <mat-icon>add</mat-icon>
+            </button>
+            <input matInput class="add-input" type="text" #newTodo>
+        </div>
+    </div>
+
+</div>

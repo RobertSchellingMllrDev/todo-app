@@ -1,0 +1,11 @@
+<mat-nav-list *ngFor="let category of categories">
+    <div class="category" [class.selected]="category === selectedCategory">
+        <app-category [category]="category" (click)="onSelect(category)"></app-category>
+    </div>
+</mat-nav-list>
+<div class="add-button">
+    <button aria-label="Toggle sidenav" mat-icon-button color="primary" (click)="addCategory(newCat.value)">
+        <mat-icon>add</mat-icon>
+    </button>
+    <input matInput class="add-input" type="text" #newCat>
+</div>
